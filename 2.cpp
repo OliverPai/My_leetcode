@@ -96,8 +96,5 @@ int main() {
         result = result->next;
     }
 
-    //测试addTwoNumbers函数
-
-
     return 0;
 }
