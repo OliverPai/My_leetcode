@@ -29,20 +29,17 @@ public:
                     aggregation[1] = *iter_left;
                     aggregation[2] = *iter_right;
                     result.push_back(aggregation);
-                    if(*(iter_left+1)==*iter_left) {
-                        while (*(iter_left + 1) == *iter_left++)
-                            if (iter_left == iter_right)
-                                break;
-                    }
-                    else
-                        iter_left++;
-                    continue;
-                } else if (sum_temp < 0){
-                    iter_left++;
-                    continue;
-                } else if (sum_temp > 0){
-                    iter_right--;
-                    continue;
+                    while (*(iter_left + 1) == *iter_left++)
+                        if (iter_left == iter_right)
+                            break;
+                } else if (sum_temp < 0) {
+                    while (*(iter_left + 1) == *iter_left++)
+                        if (iter_left == iter_right)
+                            break;
+                } else if (sum_temp > 0) {
+                    while (*(iter_right - 1) == *iter_right--)
+                        if (iter_left == iter_right)
+                            break;
                 }
             }
         }
